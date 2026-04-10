@@ -19,8 +19,8 @@ export SHLIB_EXPORTS_DIR="$HOME/.shlib/exports"
 for f in "$SHLIB_EXPORTS_DIR"/*; do [ -f "$f" ] && export "$(basename "$f")"="$(cat "$f")"; done
 
 # Import functions from scripts in the shlibs directory
-export SHLIB_LIB_DIR="$HOME/.shlib/shlibs"
-[ -d "$SHLIB_LIB_DIR" ] && for s in "$SHLIB_LIB_DIR"/*; do [ -f "$s" ] && source "$s"; done
+export SHLIB_EXPORTS_DIR="$HOME/.shlib/exports"
+[ -d "$SHLIB_EXPORTS_DIR" ] && for f in "$SHLIB_EXPORTS_DIR"/*; do [ -f "$f" ] && export "$(basename "$f")"="$(cat "$f")"; done
 ```
 
 # Crowing
