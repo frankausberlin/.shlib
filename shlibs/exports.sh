@@ -48,15 +48,6 @@ exportfolder () {
     done
 }
 
-for f in "$SHLIB_EXPORTS_DIR"/*; do [ -f "$f" ] && export "$(basename "$f")"="$(cat "$f")"; done
-
-for file in "$SHLIB_EXPORTS_DIR"/*; do
-    # Check if it's a regular file
-    if [ -f "$file" ]; then
-    # Export the variable or preview
-    export $(basename "$file")=$(cat "$file")
-    fi
-done
 
 # exportadd: Adds a path to an environment variable, ensuring uniqueness.
 #
