@@ -27,7 +27,7 @@ export SHLIB_EXPORTS_DIR="$HOME/.shlib/exports"
 
 * If you have developed new scripts, just commit and push and they are in the repo. This gives you a versioned collection of functions and scripts that you can use in your shell.
 
-* Your environment variables from the exports folder are not saved in the repo (tokens, keys, etc.)because they are excluded in the .gitignore file.
+* Your environment variables from the exports folder are not saved in the repo (tokens, keys, etc.) because they are excluded in the .gitignore file. (the folder is only in the repo to save an mkdir)
 ```shell
 # Ignore everything in this directory
 *
