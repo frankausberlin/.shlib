@@ -36,7 +36,6 @@ alias ubi="ssh frank@ubi"
 alias doogee="ssh -o IdentitiesOnly=yes -i ~/.ssh/id_doogee -p 8022 u0_a209@doogee"
 alias redmi="ssh -o IdentitiesOnly=yes -i ~/.ssh/id_rsa -p 8022 u0_a470@redmi"
 alias teci="ssh -p 8022 u0_a218@teci"
-alias gd="cd ~/labor/GoogleDrive && [ -z '$(ls -A ~/labor/GoogleDrive)' ] && google-drive-ocamlfuse ~/labor/GoogleDrive"
 
 # Utilities
 alias lsc="ls -d .[^.]*"

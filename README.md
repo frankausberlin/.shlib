@@ -37,7 +37,7 @@ export SHLIB_EXPORTS_DIR="$HOME/.shlib/exports"
 
 # Syncing
 
-Source the repo (see Installation), then run `shliblibsync` to check for updates. It will:
+Source the repo (see Installation), then run `shlibsync` to check for updates. It will:
 
 1. Fetch from `origin` and show remote updates (if any) — you can pull them with `y`
 2. Show a diff of local changes (if any) — you can commit & push them with `y`
