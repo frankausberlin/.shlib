@@ -35,24 +35,5 @@ export SHLIB_EXPORTS_DIR="$HOME/.shlib/exports"
 !.gitignore
 ```
 
-# Syncing
-
-Source the repo (see Installation), then run `shlibsync` to check for updates. It will:
-
-1. Fetch from `origin` and show remote updates (if any) — you can pull them with `y`
-2. Show a diff of local changes (if any) — you can commit & push them with `y`
-3. Offer to push unpushed commits (if any)
-
-Uses `delta` for prettier diffs if installed, otherwise `git diff --color-words`.
-
-# Example
-
-```shell
-echo "Hello, world!" > ~/.shlib/exports/MY_VAR
-
-echo 'my_func() { echo "$MY_VAR"; }' > ~/.shlib/shlibs/my_func.sh
-```
-
-Then 'source .bashrc' or 'source .zshrc' depending on your shell. Now you can run my_func
 
 
