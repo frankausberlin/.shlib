@@ -3,12 +3,13 @@
 # Usage: shlibsync
 
 _shlibsync_show_diff() {
+    local repo="$1"; shift
     if command -v delta &>/dev/null; then
-        git diff --color=always "$@" | delta
+        git -C "$repo" diff --color=always "$@" | delta
     else
-        git diff --stat "$@" 2>/dev/null
+        git -C "$repo" diff --stat "$@" 2>/dev/null
         echo ""
-        git diff --color-words "$@" 2>/dev/null
+        git -C "$repo" diff --color-words "$@" 2>/dev/null
     fi
 }
 
@@ -47,8 +48,8 @@ shlibsync() {
     if ! git -C "$repo" diff --quiet 2>/dev/null || ! git -C "$repo" diff --cached --quiet 2>/dev/null; then
         echo ""
         echo "==> Local changes:"
-        _shlibsync_show_diff -C "$repo"
-        _shlibsync_show_diff -C "$repo" --cached
+        _shlibsync_show_diff "$repo"
+        _shlibsync_show_diff "$repo" --cached
         echo ""
         read -r -p "Commit and push local changes? [y/N] " answer
         if [ "$answer" = "y" ] || [ "$answer" = "Y" ]; then
