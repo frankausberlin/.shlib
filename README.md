@@ -2,7 +2,7 @@ This repo contains two folders: `exports` and `shlibs`.
 
 The `exports` folder is meant to contain files with environment variable names as their filenames and the content of those files as the value of the environment variable. It only contains a gitignore, which excludes all files in it. 
 
-The `shlibs` folder is meant to contain shell scripts with functions that can be sourced into your shell.
+The `shlibs` folder is meant to contain shell scripts with functions that can be sourced into your shell. It also only contains a gitignore, which excludes all files in it.
 
 # Installation
 
@@ -23,17 +23,22 @@ export SHLIB_EXPORTS_DIR="$HOME/.shlib/exports"
 [ -d "$SHLIB_EXPORTS_DIR" ] && for f in "$SHLIB_EXPORTS_DIR"/*; do [ -f "$f" ] && export "$(basename "$f")"="$(cat "$f")"; done
 ```
 
-# Crowing
-
-* If you have developed new scripts, just commit and push and they are in the repo. This gives you a versioned collection of functions and scripts that you can use in your shell.
-
-* Your environment variables from the exports folder are not saved in the repo (tokens, keys, etc.) because they are excluded in the .gitignore file. (the folder is only in the repo to save an mkdir)
+* Your environment variables from the exports folder and your script files are not saved in the repo because they are excluded in the .gitignore file. (the folders are only in the repo to save an mkdir)
 ```shell
 # Ignore everything in this directory
 *
 # Except this file
 !.gitignore
 ```
+
+
+# Usage
+
+* After you have inserted the script snippets to read the folders into your starup file, you can store the scripts and exports in the respective folders and they will be loaded automatically.
+
+* You can also use symbolic links: `ln -s /path/to/original/file /path/to/symlink`
+
+* Another use case: after cloning, delete the .git folder and the .gitignore files in exports and shlibs. then make it a private repo and commit/push it. Now you have a versioned collection of scripts and exports that you can use in your shell.
 
 
 
