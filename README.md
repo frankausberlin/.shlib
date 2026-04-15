@@ -16,11 +16,10 @@ git clone https://github.com/your_username/shlib.git ~/.shlib
 
 # Import all files in the exports directory as environment variables with its content as the value
 export SHLIB_EXPORTS_DIR="$HOME/.shlib/exports"
-for f in "$SHLIB_EXPORTS_DIR"/*; do [ -f "$f" ] && export "$(basename "$f")"="$(cat "$f")"; done
+[ -d "$SHLIB_EXPORTS_DIR" ] && for f in "$SHLIB_EXPORTS_DIR"/*(N); do [ -f "$f" ] && export "$(basename "$f")"="$(cat "$f")"; done
 
-# Import functions from scripts in the shlibs directory
-export SHLIB_EXPORTS_DIR="$HOME/.shlib/exports"
-[ -d "$SHLIB_EXPORTS_DIR" ] && for f in "$SHLIB_EXPORTS_DIR"/*; do [ -f "$f" ] && export "$(basename "$f")"="$(cat "$f")"; done
+export SHLIB_LIB_DIR="$HOME/.shlib/shlibs"
+[ -d "$SHLIB_LIB_DIR" ] && for s in "$SHLIB_LIB_DIR"/*(N); do [ -f "$s" ] && source "$s"; done
 ```
 
 * Your environment variables from the exports folder and your script files are not saved in the repo because they are excluded in the .gitignore file. (the folders are only in the repo to save an mkdir)
